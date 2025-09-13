@@ -14,5 +14,4 @@ public class FacadeAsigna {
     public void guardarAsigna(Asigna asigna){
         delegateAsigna.saveAsigna(asigna);
     }
-
 }

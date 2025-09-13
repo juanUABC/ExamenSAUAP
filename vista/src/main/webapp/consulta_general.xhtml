@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>Consulta de Asignaciones</title>
+    <style>
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #1f172b;
+            padding: 14px 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #1f172b;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f7f7f7;
+        }
+        tr:hover {
+            background-color: #ececec;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Registrar</a>
+        <a href="#">Consultar</a>
+        <a href="#">Modificar</a>
+        <a href="#">Eliminar</a>
+    </div>
+
+    <div class="container">
+        <div class="title">Consulta de Asignaciones</div>
+
+        <h:form>
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Profesor</th>
+                    <th>Día(s)</th>
+                    <th>Hora Inicio</th>
+                    <th>Hora Fin</th>
+                </tr>
+                </thead>
+                <tbody>
+                <ui:repeat value="#{consultaBean.asignaciones}" var="a">
+                    <tr>
+                        <td><h:outputText value="#{a.idAsignacion}" /></td>
+                        <td><h:outputText value="#{a.idProfesor}" /></td>
+                        <td><h:outputText value="#{a.diasClase}" /></td>
+                        <td><h:outputText value="#{a.horaInicio}" /></td>
+                        <td><h:outputText value="#{a.horaFin}" /></td>
+                    </tr>
+                </ui:repeat>
+                </tbody>
+            </table>
+        </h:form>
+    </div>
+</h:body>
+</html>

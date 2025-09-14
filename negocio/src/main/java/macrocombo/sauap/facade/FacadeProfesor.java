@@ -2,7 +2,6 @@ package macrocombo.sauap.facade;
 
 import macrocombo.sauap.delegate.DelegateProfesor;
 import macrocombo.sauap.entity.Profesor;
-
 public class FacadeProfesor {
 
     private final DelegateProfesor delegateProfesor;

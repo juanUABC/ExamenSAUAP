@@ -14,6 +14,8 @@
         <class>macrocombo.sauap.entity.UnidadAprendizaje</class>
 
 
+
+
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/asignacionua"/>

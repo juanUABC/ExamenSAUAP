@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Alta de Unidad de Aprendizaje</title>
+    <style>
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #1f172b;
+            padding: 14px 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #1f172b;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f7f7f7;
+        }
+        tr:hover {
+            background-color: #ececec;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <header class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Registrar</a>
+        <a href="#">Consultar</a>
+        <a href="#">Modificar</a>
+        <a href="#">Eliminar</a>
+
+
+    </header>
+
+
+    <div class="container">
+        <div class="title">Alta de Unidad de Aprendizaje</div>
+
+        <h:form>
+            <div class="form-container">
+                <!-- Nombre de la unidad -->
+                <div class="form-row">
+                    <div class="form-label">Nombre de la unidad de aprendizaje:</div>
+                    <div class="form-input">
+                        <p:inputText value="#{unidadAprendizajeUI.unidadAprendizaje.nombreUp}"
+                                     maxlength="50"
+                                     style="width: 100%"
+                                     placeholder="Máximo 50 caracteres"/>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div>Número de horas Laboratorio:</div>
+                    <p:spinner value="#{unidadAprendizajeUI.unidadAprendizaje.horasLaboratorio}"
+                               min="1"
+                               max="4"
+                               step="1"/>
+                </div>
+
+                <div class="form-row">
+                    <div>Número de horas Laboratorio:</div>
+                    <p:spinner value="#{unidadAprendizajeUI.unidadAprendizaje.horasClase}"
+                               min="1"
+                               max="4"
+                               step="1"/>
+                </div>
+
+                <div class="form-row">
+                    <div>Número de horas Laboratorio:</div>
+                    <p:spinner value="#{unidadAprendizajeUI.unidadAprendizaje.horasTaller}"
+                               min="1"
+                               max="4"
+                               step="1"/>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="button-group">
+                    <p:commandButton value="Limpiar"
+                                     styleClass="btn-clear"
+                                     icon="pi pi-trash"/>
+
+                    <p:commandButton value="Insertar"
+                                     styleClass="btn-insert"
+                                     action="#{unidadAprendizajeUI.guardar}"
+                                     icon="pi pi-save"/>
+                </div>
+
+                <!-- Mensaje de confirmación -->
+                <p:outputPanel>
+                    <div class="message success">
+                        Unidad de aprendizaje registrada correctamente.
+                    </div>
+                </p:outputPanel>
+            </div>
+        </h:form>
+    </div>
+
+
+</h:body>
+</html>

@@ -11,13 +11,15 @@ import java.time.LocalTime;
 @Entity
 @Table(name = "asigna", schema = "asignacionua")
 public class Asigna {
+
+    //Estos se suponen que relacionan todo :c
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_asignacion", nullable = false)
     private Integer id;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "ID_unidad", nullable = false)
     private UnidadAprendizaje idUnidad;
@@ -35,12 +37,22 @@ public class Asigna {
     @Column(name = "hora_fin", nullable = false)
     private LocalTime horaFin;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ID_profesor", nullable = true)
+    private Profesor idProfesor;
+
+    // Getter y setter :c
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    // Getter pa #{a.idAsignacion} :c
+    public Integer getIdAsignacion() {
+        return id;
     }
 
     public UnidadAprendizaje getIdUnidad() {
@@ -75,4 +87,11 @@ public class Asigna {
         this.horaFin = horaFin;
     }
 
+    public Profesor getIdProfesor() {
+        return idProfesor;
+    }
+
+    public void setIdProfesor(Profesor idProfesor) {
+        this.idProfesor = idProfesor;
+    }
 }

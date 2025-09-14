@@ -5,9 +5,17 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Home</title>
+        <link rel="stylesheet" href="resources/style.css"/>
     </h:head>
     <h:body>
+        <header class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Registrar</a>
+            <a href="#">Consultar</a>
+            <a href="#">Modificar</a>
+            <a href="#">Eliminar</a>
+        </header>
         <p:panelGrid class="txt">
             <f:facet name="header">  
                 <p:row>
@@ -16,11 +24,11 @@
             </f:facet>
             <p:row>
                 <p:column styleClass="celda">Nombre:</p:column>
-                <p:column><h:outputText value="#{loginUI.administrador.id}" /></p:column>
+                <p:column><h:outputText value="#{loginUI.administrador.nombreUsuario}" /></p:column>
             </p:row>
             <p:row>
-                <p:column styleClass="celda">Apellido:</p:column>
-                <p:column><h:outputText value="#{loginUI.administrador.nombreUsuario}" /></p:column>
+                <p:column styleClass="celda">ID. :</p:column>
+                <p:column><h:outputText value="#{loginUI.administrador.id}" /></p:column>
             </p:row>
         </p:panelGrid>
     </h:body>

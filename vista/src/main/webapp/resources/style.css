@@ -8,3 +8,60 @@ and open the template in the editor.
     background: black;
 }
 
+body {
+     font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background-color: #f9f9f9;
+     margin: 0;
+     padding: 0;
+ }
+.navbar {
+    background-color: #1f172b;
+    padding: 14px 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+.navbar a:hover {
+    text-decoration: underline;
+}
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+.title {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 25px;
+    text-align: center;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #1f172b;
+    color: #ffffff;
+    font-weight: 600;
+}
+tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+tr:hover {
+    background-color: #ececec;
+}

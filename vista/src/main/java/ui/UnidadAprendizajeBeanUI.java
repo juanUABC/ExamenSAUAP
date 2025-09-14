@@ -1,6 +1,8 @@
 package ui;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import macrocombo.sauap.entity.UnidadAprendizaje;
@@ -18,8 +20,22 @@ public class UnidadAprendizajeBeanUI implements Serializable {
     }
 
     public void guardar() {
-        ServiceFacadeLocator.getInstanceFacadeUnidadAprendizaje().guardarUnidadAprendizaje(unidadAprendizaje);
-        this.unidadAprendizaje = new UnidadAprendizaje();
+        try {
+            ServiceFacadeLocator.getInstanceFacadeUnidadAprendizaje()
+                    .guardarUnidadAprendizaje(unidadAprendizaje);
+
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_INFO,
+                            "Éxito",
+                            "Unidad de aprendizaje registrada correctamente"));
+
+            this.unidadAprendizaje = new UnidadAprendizaje();
+        } catch (IllegalArgumentException ex) {
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                            "Error",
+                            ex.getMessage()));
+        }
     }
 
     public UnidadAprendizaje getUnidadAprendizaje() {

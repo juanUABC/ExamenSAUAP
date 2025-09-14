@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+    <title>Registro de Profesores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #fdfdfd;
+        }
+
+        /* Barra de navegación */
+        .navbar {
+            background-color: #1d0f22;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 40px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contenedor del formulario */
+        .container {
+            margin: 40px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 150px 300px;
+            gap: 15px;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #333;
+            border-radius: 6px;
+            width: 100%;
+        }
+
+        .submit-btn {
+            grid-column: 2;
+            justify-self: end;
+        }
+
+        .submit-btn input {
+            background-color: #1d0f22;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .submit-btn input:hover {
+            background-color: #3a2242;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <!-- Menú superior -->
+    <div class="navbar">
+        <h:link value="Volver" outcome="index"/>
+        <h:link value="Registrar" outcome="registroProfesor"/>
+        <h:link value="Consultar" outcome="consultarProfesor"/>
+        <h:link value="Modificar" outcome="modificarProfesor"/>
+        <h:link value="Eliminar" outcome="eliminarProfesor"/>
+    </div>
+
+    <!-- Contenedor del formulario -->
+    <div class="container">
+        <h2>Registro de profesores</h2>
+        <h:form>
+            <div class="form-grid">
+                <h:outputLabel for="nombre" value="Nombre"/>
+                <h:inputText id="nombre" value="#{profesorBean.nombre}"/>
+
+                <h:outputLabel for="apellidoPaterno" value="Apellido Paterno"/>
+                <h:inputText id="apellidoPaterno" value="#{profesorBean.apellidoPaterno}"/>
+
+                <h:outputLabel for="apellidoMaterno" value="Apellido Materno"/>
+                <h:inputText id="apellidoMaterno" value="#{profesorBean.apellidoMaterno}"/>
+
+                <h:outputLabel for="rfc" value="RFC"/>
+                <h:inputText id="rfc" value="#{profesorBean.rfc}"/>
+
+                <div class="submit-btn"> <!-- Obviamente aún no tiene esto completo :p -->
+                    <h:commandButton value="Registrar" action="#{profesorBean.registrar}"/>
+                </div>
+            </div>
+        </h:form>
+    </div>
+</h:body>
+</html>

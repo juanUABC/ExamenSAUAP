@@ -2,6 +2,9 @@ package macrocombo.sauap.facade;
 
 import macrocombo.sauap.delegate.DelegateProfesor;
 import macrocombo.sauap.entity.Profesor;
+
+import java.util.List;
+
 public class FacadeProfesor {
 
     private final DelegateProfesor delegateProfesor;
@@ -14,4 +17,7 @@ public class FacadeProfesor {
         delegateProfesor.saveProfesor(profe);
     }
 
+    public List<Profesor> obtenerProfesores(){
+        return delegateProfesor.getProfesores();
+    }
 }

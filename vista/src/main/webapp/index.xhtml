@@ -4,50 +4,76 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        <p:panelGrid class="txt">
-            <f:facet name="header">  
-                <p:row>
-                    <p:column colspan="7"><p:graphicImage url="resources/user.png" class="logo"/></p:column>
-                </p:row>
-            </f:facet>
+<h:head>
+    <title>Página Principal</title>
+</h:head>
+<h:body>
+    <p:panelGrid class="txt">
+        <f:facet name="header">
             <p:row>
-                <p:column styleClass="celda">Nombre:</p:column>
-                <p:column><h:outputText value="#{loginUI.administrador.id}" /></p:column>
+                <p:column colspan="7">
+                    <p:graphicImage url="resources/user.png" class="logo"/>
+                </p:column>
             </p:row>
-            <p:row>
-                <p:column styleClass="celda">Apellido:</p:column>
-                <p:column><h:outputText value="#{loginUI.administrador.nombreUsuario}" /></p:column>
-            </p:row>
-        </p:panelGrid>
-    </h:body>
-    <style>
-        .logo{
-            width: 170px;
-        }
-        .celda{
-            width: 25%;
-            background-color: #089b4d;
-            color:white;
-        }
-        .txt{
-                position: absolute;
-                top:0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 35%;
-                width: 25%;
-                padding: 25px;
-                margin: auto;
-                background: white;
-                border-radius: 5px;
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            
-        }
-    </style>
+        </f:facet>
+
+        <p:row>
+            <p:column styleClass="celda">ID:</p:column>
+            <p:column><h:outputText value="#{loginUI.administrador.id}" /></p:column>
+        </p:row>
+
+        <p:row>
+            <p:column styleClass="celda">Nombre:</p:column>
+            <p:column><h:outputText value="#{loginUI.administrador.nombreUsuario}" /></p:column>
+        </p:row>
+
+        <!-- Fila con los botones de navegación -->
+    </p:panelGrid>
+    <p:row>
+        <p:column colspan="2" style="text-align:center; padding-top:20px;">
+            <p:button value="Registro de Profesores" outcome="registroProfesor.xhtml" styleClass="btn-nav"/>
+            <p:button value="Asignación" outcome="asignacion.xhtml" styleClass="btn-nav"/>
+            <p:button value="Consulta General" outcome="consulta_general.xhtml" styleClass="btn-nav"/>
+        </p:column>
+    </p:row>
+</h:body>
+
+<style>
+    .logo{
+        width: 170px;
+    }
+    .celda{
+        width: 25%;
+        background-color: #089b4d;
+        color:white;
+    }
+    .txt{
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 45%;
+        width: 30%;
+        padding: 25px;
+        margin: auto;
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        text-align: center;
+    }
+    .btn-nav{
+        margin: 10px;
+        background-color: #089b4d;
+        color: white;
+        border-radius: 5px;
+        padding: 10px 15px;
+        border: none;
+    }
+    .btn-nav:hover{
+        background-color: #067a3a;
+    }
+</style>
 </html>
+
 

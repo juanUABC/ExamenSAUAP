@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <p:menubar>
+        <p:submenu label="Home" icon="pi pi-home">
+            <p:menuitem value="Inicio" url="index.xhtml" />
+        </p:submenu>
+
+        <p:submenu label="Registrar" icon="pi pi-plus">
+            <p:menuitem value="Unidad de Aprendizaje" url="altaUnidadAprendizaje.xhtml" />
+            <p:menuitem value="Profesor" url="registroProfesor.xhtml" />
+            <p:menuitem value="Asignación" url="asignacion.xhtml" />
+        </p:submenu>
+
+        <p:submenu label="Consultar" icon="pi pi-search">
+            <p:menuitem value="Unidad de Aprendizaje" url="unidadConsulta.xhtml" />
+            <p:menuitem value="Profesor" url="profesorConsulta.xhtml" />
+            <p:menuitem value="Asignación" url="asignacionConsulta.xhtml" />
+        </p:submenu>
+
+        <p:submenu label="Modificar" icon="pi pi-pencil">
+            <p:menuitem value="Unidad de Aprendizaje" url="unidadModificar.xhtml" />
+            <p:menuitem value="Profesor" url="profesorModificar.xhtml" />
+            <p:menuitem value="Asignación" url="asignacionModificar.xhtml" />
+        </p:submenu>
+
+        <p:submenu label="Eliminar" icon="pi pi-trash">
+            <p:menuitem value="Unidad de Aprendizaje" url="unidadEliminar.xhtml" />
+            <p:menuitem value="Profesor" url="profesorEliminar.xhtml" />
+            <p:menuitem value="Asignación" url="asignacionEliminar.xhtml" />
+        </p:submenu>
+    </p:menubar>
+</ui:composition>

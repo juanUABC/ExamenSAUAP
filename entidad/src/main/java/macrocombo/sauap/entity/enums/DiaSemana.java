@@ -1,11 +1,10 @@
 package macrocombo.sauap.entity.enums;
 
 public enum DiaSemana {
-    LUNES,
-    MARTES,
-    MIERCOLES,
-    JUEVES,
-    VIERNES,
-    SABADO,
-    DOMINGO
+    Lunes,
+    Martes,
+    Miercoles,
+    Jueves,
+    Viernes,
+    Sabado,
 }

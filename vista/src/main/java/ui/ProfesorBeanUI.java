@@ -41,6 +41,7 @@ public class ProfesorBeanUI implements Serializable {
     public List<Profesor> getProfesores() {
         return ServiceFacadeLocator.getInstanceFacadeProfesor().obtenerProfesores();
     }
+
     public Profesor getProfesor() {
         return profesor;
     }

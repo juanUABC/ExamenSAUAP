@@ -5,10 +5,12 @@ import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
+import macrocombo.sauap.entity.Profesor;
 import macrocombo.sauap.entity.UnidadAprendizaje;
 import macrocombo.sauap.integration.ServiceFacadeLocator;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Named("unidadAprendizajeUI")
 @ViewScoped
@@ -36,6 +38,10 @@ public class UnidadAprendizajeBeanUI implements Serializable {
                             "Error",
                             ex.getMessage()));
         }
+    }
+
+    public List<UnidadAprendizaje> getListaUnidadAprendizaje() {
+        return ServiceFacadeLocator.getInstanceFacadeUnidadAprendizaje().obtenerUnidades();
     }
 
     public UnidadAprendizaje getUnidadAprendizaje() {

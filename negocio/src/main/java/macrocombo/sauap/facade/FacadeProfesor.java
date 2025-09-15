@@ -4,6 +4,7 @@ import macrocombo.sauap.delegate.DelegateProfesor;
 import macrocombo.sauap.entity.Profesor;
 
 import java.util.List;
+import java.util.Optional;
 
 public class FacadeProfesor {
 
@@ -19,5 +20,9 @@ public class FacadeProfesor {
 
     public List<Profesor> obtenerProfesores(){
         return delegateProfesor.getProfesores();
+    }
+
+    public Optional<Profesor> obtenerProfesorPorID(int id){
+        return delegateProfesor.getProfesor(id);
     }
 }

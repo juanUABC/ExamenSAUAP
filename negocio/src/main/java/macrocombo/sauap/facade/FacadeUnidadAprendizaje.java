@@ -1,7 +1,11 @@
 package macrocombo.sauap.facade;
 
 import macrocombo.sauap.delegate.DelegateUnidadAprendizaje;
+import macrocombo.sauap.entity.Profesor;
 import macrocombo.sauap.entity.UnidadAprendizaje;
+
+import java.util.List;
+import java.util.Optional;
 
 public class FacadeUnidadAprendizaje {
 
@@ -16,6 +20,9 @@ public class FacadeUnidadAprendizaje {
         delegateUnidadAprendizaje.saveUnidadAprendizaje(up);
     }
 
+    public List<UnidadAprendizaje> obtenerUnidades(){
+        return delegateUnidadAprendizaje.getUnidades();
+    }
 
     private void validar(UnidadAprendizaje unidad) {
         String nombreUp = unidad.getNombreUp();
@@ -35,5 +42,9 @@ public class FacadeUnidadAprendizaje {
         if (unidad.getHorasLaboratorio() < 0 || unidad.getHorasLaboratorio() > 4) {
             throw new IllegalArgumentException("Horas de laboratorio deben estar entre 0 y 4");
         }
+    }
+
+    public Optional<UnidadAprendizaje> obtenerUnidadPorID(Integer id) {
+        return delegateUnidadAprendizaje.getUnidad(id);
     }
 }

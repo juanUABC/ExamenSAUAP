@@ -20,7 +20,6 @@ public class Asigna {
 
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "ID_unidad", nullable = false)
     private UnidadAprendizaje idUnidad;
 

@@ -15,8 +15,6 @@ import java.util.List;
 @Named("consultaGeneralBeanUI")
 @ViewScoped
 public class ConsultaGeneralBeanUI implements Serializable {
-    private static final long serialVersionUID = 1L;
-
     private List<Asigna> asignaciones;
 
     @PostConstruct
@@ -43,7 +41,7 @@ public class ConsultaGeneralBeanUI implements Serializable {
             }
 
         } catch (Exception e) {
-            e.printStackTrace(); // revisa la consola del servidor
+            e.printStackTrace();
             asignaciones = new ArrayList<>();
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_ERROR,

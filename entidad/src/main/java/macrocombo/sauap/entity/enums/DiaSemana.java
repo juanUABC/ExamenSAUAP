@@ -7,5 +7,4 @@ public enum DiaSemana {
     Jueves,
     Viernes,
     Sabado,
-    Domingo
 }

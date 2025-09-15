@@ -6,32 +6,30 @@ import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import macrocombo.sauap.entity.Profesor;
-import macrocombo.sauap.entity.UnidadAprendizaje;
 import macrocombo.sauap.integration.ServiceFacadeLocator;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Named("unidadAprendizajeUI")
+@Named("ProfesorUI")
 @ViewScoped
-public class UnidadAprendizajeBeanUI implements Serializable {
-    private UnidadAprendizaje unidadAprendizaje;
+public class ProfesorBeanUI implements Serializable {
+    private Profesor profesor;
     @PostConstruct
     public void init() {
-        unidadAprendizaje = new UnidadAprendizaje();
+        profesor = new Profesor();
     }
 
     public void guardar() {
         try {
-            ServiceFacadeLocator.getInstanceFacadeUnidadAprendizaje()
-                    .guardarUnidadAprendizaje(unidadAprendizaje);
+            ServiceFacadeLocator.getInstanceFacadeProfesor().guardarProfesor(profesor);
 
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_INFO,
                             "Éxito",
-                            "Unidad de aprendizaje registrada correctamente"));
+                            "Profesor registrado correctamente"));
 
-            this.unidadAprendizaje = new UnidadAprendizaje();
+            this.profesor = new Profesor();
         } catch (IllegalArgumentException ex) {
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
@@ -40,16 +38,16 @@ public class UnidadAprendizajeBeanUI implements Serializable {
         }
     }
 
-    public List<UnidadAprendizaje> getListaUnidadAprendizaje() {
-        return ServiceFacadeLocator.getInstanceFacadeUnidadAprendizaje().obtenerUnidades();
+    public List<Profesor> getProfesores() {
+        return ServiceFacadeLocator.getInstanceFacadeProfesor().obtenerProfesores();
     }
 
-    public UnidadAprendizaje getUnidadAprendizaje() {
-        return unidadAprendizaje;
+    public Profesor getProfesor() {
+        return profesor;
     }
 
-    public void setUnidadAprendizaje(UnidadAprendizaje unidadAprendizaje) {
-        this.unidadAprendizaje = unidadAprendizaje;
+    public void setProfesor(Profesor profesor) {
+        this.profesor = profesor;
     }
 }
 

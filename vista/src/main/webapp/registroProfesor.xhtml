@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
     <title>Registro de Profesores</title>
@@ -76,16 +76,8 @@
 </h:head>
 
 <h:body>
-    <!-- Menú superior -->
-    <div class="navbar">
-        <h:link value="Volver" outcome="index"/>
-        <h:link value="Registrar" outcome="registroProfesor"/>
-        <h:link value="Consultar" outcome="consultarProfesor"/>
-        <h:link value="Modificar" outcome="modificarProfesor"/>
-        <h:link value="Eliminar" outcome="eliminarProfesor"/>
-    </div>
+    <ui:include src="/resources/navbar.xhtml" />
 
-    <!-- Contenedor del formulario -->
     <div class="container">
         <h2>Registro de profesores</h2>
         <h:form>

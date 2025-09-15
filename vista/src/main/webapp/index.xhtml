@@ -3,11 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Home</title>
+        <link rel="stylesheet" href="resources/style.css"/>
     </h:head>
     <h:body>
+        <ui:include src="/resources/navbar.xhtml" />
         <p:panelGrid class="txt">
             <f:facet name="header">  
                 <p:row>
@@ -16,11 +18,11 @@
             </f:facet>
             <p:row>
                 <p:column styleClass="celda">Nombre:</p:column>
-                <p:column><h:outputText value="#{loginUI.administrador.id}" /></p:column>
+                <p:column><h:outputText value="#{loginUI.administrador.nombreUsuario}" /></p:column>
             </p:row>
             <p:row>
-                <p:column styleClass="celda">Apellido:</p:column>
-                <p:column><h:outputText value="#{loginUI.administrador.nombreUsuario}" /></p:column>
+                <p:column styleClass="celda">ID. :</p:column>
+                <p:column><h:outputText value="#{loginUI.administrador.id}" /></p:column>
             </p:row>
         </p:panelGrid>
     </h:body>

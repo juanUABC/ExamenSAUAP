@@ -14,4 +14,8 @@ public class DelegateAsigna {
     public List<Asigna> obtenerTodasAsignaciones() {
         return ServiceLocator.getInstanceAsignaDAO().obtenerTodasAsignaciones();
     }
+
+    public boolean existeTraslape(Asigna asigna) {
+        return ServiceLocator.getInstanceAsignaDAO().existeTraslape(asigna);
+    }
 }

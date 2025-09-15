@@ -22,16 +22,13 @@
         .controls { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:12px; }
     </style>
 </h:head>
+
 <h:body>
-    <div class="navbar">
-        <a href="#">Home</a>
-        <a href="#">Registrar</a>
-        <a href="#">Consultar</a>
-        <a href="#">Modificar</a>
-        <a href="#">Eliminar</a>
-    </div>
+    <ui:include src="/resources/navbar.xhtml" />
+
     <div class="container">
         <div class="title">Consulta de Asignaciones</div>
+
         <h:form>
             <!-- Mensajes de aviso o error -->
             <h:messages globalOnly="true" layout="table"
@@ -48,12 +45,12 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Profesor</f:facet>
-                    <h:outputText value="#{a.idProfesor.nombreProfesor}" />
+                    <h:outputText value="#{a.idProfesor}" />
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">Unidad</f:facet>
-                    <h:outputText value="#{a.idUnidad.nombreUp}" />
+                    <h:outputText value="#{a.idUnidad}" />
                 </h:column>
 
                 <h:column>
@@ -62,11 +59,13 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Hora Inicio</f:facet>
-                    <h:outputText value="#{a.horaInicio.toString()}" />
+                    <h:outputText value="#{a.horaInicio}">
+                        <f:convertDateTime pattern="HH:mm" />
+                    </h:outputText>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Hora Fin</f:facet>
-                    <h:outputText value="#{a.horaFin.toString()}">
+                    <h:outputText value="#{a.horaFin}">
                         <f:convertDateTime pattern="HH:mm" />
                     </h:outputText>
                 </h:column>

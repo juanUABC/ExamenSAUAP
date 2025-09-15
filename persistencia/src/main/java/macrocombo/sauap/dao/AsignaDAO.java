@@ -6,7 +6,6 @@ import macrocombo.sauap.persistence.AbstractDAO;
 
 import java.util.List;
 
-
 public class AsignaDAO extends AbstractDAO<Asigna> {
     private final EntityManager entityManager;
 
@@ -15,14 +14,36 @@ public class AsignaDAO extends AbstractDAO<Asigna> {
         this.entityManager = em;
     }
 
-    public List<Asigna> obtenerTodos(){
+    public List<Asigna> obtenerTodasAsignaciones() {
         return entityManager
-                .createQuery("SELECT a FROM Asigna a", Asigna.class)
+                .createQuery(
+                        "SELECT a FROM Asigna a " +
+                                "LEFT JOIN FETCH a.idProfesor " +
+                                "LEFT JOIN FETCH a.idUnidad",
+                        Asigna.class)
                 .getResultList();
     }
+
+    public boolean existeTraslape(Asigna nueva) {
+        String jpql = "SELECT COUNT(a) FROM Asigna a " +
+                "WHERE a.idProfesor = :profesor " +
+                "AND a.diaSemana = :dia " +
+                "AND (:horaInicio < a.horaFin AND :horaFin > a.horaInicio)";
+
+        Long count = entityManager.createQuery(jpql, Long.class)
+                .setParameter("profesor", nueva.getIdProfesor())
+                .setParameter("dia", nueva.getDiaSemana())
+                .setParameter("horaInicio", nueva.getHoraInicio())
+                .setParameter("horaFin", nueva.getHoraFin())
+                .getSingleResult();
+
+        return count > 0;
+    }
+
 
     @Override
     public EntityManager getEntityManager() {
         return entityManager;
     }
 }
+

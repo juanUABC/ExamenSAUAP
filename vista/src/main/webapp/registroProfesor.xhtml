@@ -14,7 +14,6 @@
             background-color: #fdfdfd;
         }
 
-        /* Barra de navegación */
         .navbar {
             background-color: #1d0f22;
             padding: 10px;
@@ -33,7 +32,6 @@
             text-decoration: underline;
         }
 
-        /* Contenedor del formulario */
         .container {
             margin: 40px;
         }
@@ -45,7 +43,7 @@
 
         .form-grid {
             display: grid;
-            grid-template-columns: 150px 300px;
+            grid-template-columns: 150px 300px 200px;
             gap: 15px;
             align-items: center;
         }
@@ -60,6 +58,7 @@
         .submit-btn {
             grid-column: 2;
             justify-self: end;
+            margin-top: 20px;
         }
 
         .submit-btn input {
@@ -87,32 +86,42 @@
         <h:link value="Eliminar" outcome="eliminarProfesor"/>
     </div>
 
+    <!-- Growl para mensajes globales -->
+    <p:growl id="growl" showDetail="true" life="4000" autoUpdate="true" />
+
     <!-- Contenedor del formulario -->
     <div class="container">
         <h2>Registro de profesores</h2>
         <h:form>
             <div class="form-grid">
                 <h:outputLabel for="nombre" value="Nombre"/>
-                <h:inputText id="nombre" value="#{ProfesorUI.profesor.nombreProfesor}"/>
+                <h:inputText id="nombre" value="#{ProfesorUI.profesor.nombreProfesor}"
+                             required="true" requiredMessage="El nombre es obligatorio"/>
+                <p:message for="nombre" display="icon" closable="true"/>
 
                 <h:outputLabel for="apellidoPaterno" value="Apellido Paterno"/>
-                <h:inputText id="apellidoPaterno" value="#{ProfesorUI.profesor.apellidoPaterno}"/>
+                <h:inputText id="apellidoPaterno" value="#{ProfesorUI.profesor.apellidoPaterno}"
+                             required="true" requiredMessage="El apellido paterno es obligatorio"/>
+                <p:message for="apellidoPaterno" display="icon" closable="true"/>
 
                 <h:outputLabel for="apellidoMaterno" value="Apellido Materno"/>
-                <h:inputText id="apellidoMaterno" value="#{ProfesorUI.profesor.apellidoMaterno}"/>
-
+                <h:inputText id="apellidoMaterno" value="#{ProfesorUI.profesor.apellidoMaterno}"
+                             required="true" requiredMessage="El apellido materno es obligatorio"/>
+                <p:message for="apellidoMaterno" display="icon" closable="true"/>
 
                 <h:outputLabel for="rfc" value="RFC" />
-                <h:inputText id="rfc" value="#{ProfesorUI.profesor.rfc}" required="true">
+                <h:inputText id="rfc" value="#{ProfesorUI.profesor.rfc}"
+                             required="true" requiredMessage="El RFC es obligatorio">
                     <f:validator validatorId="rfcValidator" />
                 </h:inputText>
-                <h:message for="rfc" style="color:red;" />
+                <p:message for="rfc" display="icon" closable="true"/>
 
-                <div class="submit-btn"> <!-- Obviamente aún no tiene esto completo :p -->
+                <div class="submit-btn">
                     <h:commandButton value="Registrar" action="#{ProfesorUI.guardar()}"/>
                 </div>
             </div>
         </h:form>
     </div>
 </h:body>
+
 </html>

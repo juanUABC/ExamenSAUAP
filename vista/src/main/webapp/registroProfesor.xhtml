@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
@@ -99,11 +98,12 @@
                 <h:inputText id="rfc" value="#{ProfesorUI.profesor.rfc}" required="true">
                     <f:validator validatorId="rfcValidator" />
                 </h:inputText>
-                <h:message for="rfc" style="color:red;" />
-
+    
                 <div class="submit-btn"> <!-- Obviamente aún no tiene esto completo :p -->
-                    <h:commandButton value="Registrar" action="#{ProfesorUI.guardar()}"/>
+                    <h:commandButton value="Registrar" update="msgs" action="#{ProfesorUI.guardar()}"/>
                 </div>
+
+                <p:growl id="msgs" showDetail="true" life="5000"/>
             </div>
         </h:form>
     </div>

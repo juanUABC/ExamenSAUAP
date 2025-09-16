@@ -27,11 +27,21 @@ public class ConsultaGeneralBeanUI implements Serializable {
             asignaciones = ServiceFacadeLocator.getInstanceFacadeAsigna()
                     .obtenerTodasAsignaciones();
 
+            if (asignaciones == null || asignaciones.isEmpty()) {
                 asignaciones = new ArrayList<>();
+                // 🔹 Mostrar aviso en la UI
+                FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage(FacesMessage.SEVERITY_WARN,
+                                "No hay asignaciones registradas", "No hay asignaciones disponibles."));
+            } else {
+                // 🔹 Imprimir por consola cada Asigna
+                for (Asigna a : asignaciones) {
+                    System.out.println("Asignación: " + a);
+                }
             }
 
         } catch (Exception e) {
-            e.printStackTrace(); // revisa la consola del servidor
+            e.printStackTrace();
             asignaciones = new ArrayList<>();
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
@@ -39,10 +49,12 @@ public class ConsultaGeneralBeanUI implements Serializable {
         }
     }
 
+    // Refresca la lista
     public void refresh() {
         cargarAsignaciones();
     }
 
+    // Getters y Setters
     public List<Asigna> getAsignaciones() {
         if (asignaciones == null) {
             asignaciones = new ArrayList<>();

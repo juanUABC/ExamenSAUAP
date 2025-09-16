@@ -22,14 +22,14 @@
         .controls { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:12px; }
     </style>
 </h:head>
-
 <h:body>
     <ui:include src="/resources/navbar.xhtml" />
-
     <div class="container">
         <div class="title">Consulta de Asignaciones</div>
-
         <h:form>
+            <!-- Mensajes de aviso o error -->
+            <h:messages globalOnly="true" layout="table"
+                        style="color:#d9534f; font-weight:bold; margin-bottom:15px;" />
             <div class="controls">
                 <h:commandButton value="Refrescar" action="#{consultaGeneralBeanUI.refresh}" />
             </div>
@@ -42,12 +42,12 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Profesor</f:facet>
-                    <h:outputText value="#{a.idProfesor}" />
+                    <h:outputText value="#{a.idProfesor.nombreProfesor}" />
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">Unidad</f:facet>
-                    <h:outputText value="#{a.idUnidad}" />
+                    <h:outputText value="#{a.idUnidad.nombreUp}" />
                 </h:column>
 
                 <h:column>
@@ -56,13 +56,11 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Hora Inicio</f:facet>
-                    <h:outputText value="#{a.horaInicio}">
-                        <f:convertDateTime pattern="HH:mm" />
-                    </h:outputText>
+                    <h:outputText value="#{a.horaInicio.toString()}" />
                 </h:column>
                 <h:column>
                     <f:facet name="header">Hora Fin</f:facet>
-                    <h:outputText value="#{a.horaFin}">
+                    <h:outputText value="#{a.horaFin.toString()}">
                         <f:convertDateTime pattern="HH:mm" />
                     </h:outputText>
                 </h:column>

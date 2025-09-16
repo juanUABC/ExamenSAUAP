@@ -1,4 +1,4 @@
-package macrocombo.sauap.entity;
+package helper;
 
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.component.UIComponent;

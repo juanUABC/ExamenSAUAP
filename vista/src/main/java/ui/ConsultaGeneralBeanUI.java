@@ -1,6 +1,8 @@
 package ui;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 import macrocombo.sauap.entity.Asigna;
@@ -25,21 +27,22 @@ public class ConsultaGeneralBeanUI implements Serializable {
             asignaciones = ServiceFacadeLocator.getInstanceFacadeAsigna()
                     .obtenerTodasAsignaciones();
 
-            if (asignaciones == null) {
                 asignaciones = new ArrayList<>();
             }
+
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(); // revisa la consola del servidor
             asignaciones = new ArrayList<>();
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                            "Error", "Ocurrió un problema al cargar las asignaciones."));
         }
     }
 
-    // Pa refresca pq sin refrescado no hace na' :c
     public void refresh() {
         cargarAsignaciones();
     }
 
-    // gs
     public List<Asigna> getAsignaciones() {
         if (asignaciones == null) {
             asignaciones = new ArrayList<>();

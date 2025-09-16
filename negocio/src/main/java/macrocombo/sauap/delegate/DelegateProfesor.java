@@ -1,6 +1,5 @@
 package macrocombo.sauap.delegate;
 
-import macrocombo.sauap.entity.Administrador;
 import macrocombo.sauap.entity.Profesor;
 import macrocombo.sauap.integration.ServiceLocator;
 

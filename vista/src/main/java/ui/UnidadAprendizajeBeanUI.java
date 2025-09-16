@@ -41,8 +41,23 @@ public class UnidadAprendizajeBeanUI implements Serializable {
     }
 
     public List<UnidadAprendizaje> getListaUnidadAprendizaje() {
-        return ServiceFacadeLocator.getInstanceFacadeUnidadAprendizaje().obtenerUnidades();
+        List<UnidadAprendizaje> lista = ServiceFacadeLocator.getInstanceFacadeUnidadAprendizaje().obtenerUnidades();
+
+        return lista;
     }
+
+    public void refresh() {
+        List<UnidadAprendizaje> lista = ServiceFacadeLocator.getInstanceFacadeUnidadAprendizaje().obtenerUnidades();
+
+        if (lista == null || lista.isEmpty()) {
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_WARN,
+                            "No hay unidades de aprendizaje registradas.",
+                            "No hay unidades de aprendizaje registradas."));
+        }
+    }
+
+
 
     public UnidadAprendizaje getUnidadAprendizaje() {
         return unidadAprendizaje;
@@ -52,4 +67,3 @@ public class UnidadAprendizajeBeanUI implements Serializable {
         this.unidadAprendizaje = unidadAprendizaje;
     }
 }
-

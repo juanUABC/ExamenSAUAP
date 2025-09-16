@@ -9,7 +9,7 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #fdfdfd;
+            background-color: #f4f6f9;
         }
 
         /* Barra de navegación */
@@ -31,46 +31,71 @@
             text-decoration: underline;
         }
 
-        /* Contenedor del formulario */
+        /* Contenedor centrado tipo tarjeta con borde verde */
         .container {
-            margin: 40px;
+            max-width: 500px;
+            margin: 60px auto;
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 2px solid #4CAF50;  /* borde verde */
         }
 
+        /* Título */
         h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: #222;
+            text-align: center;
         }
 
+        /* Formulario en grid */
         .form-grid {
             display: grid;
-            grid-template-columns: 150px 300px;
-            gap: 15px;
-            align-items: center;
+            grid-template-columns: 1fr;
+            gap: 18px;
         }
 
-        input[type="text"] {
-            padding: 8px;
-            border: 1px solid #333;
-            border-radius: 6px;
+        /* Inputs y selects con borde verde */
+        input[type="text"],
+        input[type="number"],
+        select {
+            padding: 10px;
+            border: 2px solid #4CAF50;  /* borde verde por defecto */
+            border-radius: 8px;
             width: 100%;
+            font-size: 14px;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
         }
 
+        input:focus,
+        select:focus {
+            border-color: #2e7d32;  /* verde más oscuro al enfocar */
+            box-shadow: 0 0 5px rgba(46, 125, 50, 0.5);
+            outline: none;
+        }
+
+        /* Botón */
         .submit-btn {
-            grid-column: 2;
-            justify-self: end;
+            text-align: center;
         }
 
         .submit-btn input {
-            background-color: #1d0f22;
+            background: linear-gradient(135deg, #4CAF50, #2f9e44);
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 10px 18px;
             border-radius: 8px;
             cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
         }
 
         .submit-btn input:hover {
-            background-color: #3a2242;
+            background: linear-gradient(135deg, #2f9e44, #1e7e34);
+            transform: translateY(-2px);
         }
     </style>
 </h:head>

@@ -24,14 +24,14 @@
                 <p:selectOneMenu value="#{asignacionUI.idProfesor}" filter="true" filterMatchMode="contains" placeholder="Selecciona un profesor">
                     <f:selectItem itemLabel="-- Selecciona --" itemValue="#{null}" />
                     <f:selectItems value="#{asignacionUI.profesores}" var="prof"
-                                   itemValue="#{prof.id}" itemLabel="#{prof.nombreProfesor}" />
+                                   itemValue="#{prof.id}" itemLabel="#{prof.id}. #{prof.nombreProfesor} #{prof.apellidoPaterno} #{prof.apellidoMaterno}" />
                 </p:selectOneMenu>
 
                 <div>Unidad:</div>
                 <p:selectOneMenu value="#{asignacionUI.idUnidad}" filter="true" filterMatchMode="contains" placeholder="Selecciona una Unidad de aprendizaje">
                     <f:selectItem itemLabel="-- Selecciona --" itemValue="#{null}" />
                     <f:selectItems value="#{asignacionUI.unidades}" var="unidad"
-                                   itemValue="#{unidad.id}" itemLabel="#{unidad.nombreUp}" />
+                                   itemValue="#{unidad.id}" itemLabel="#{unidad.id}. #{unidad.nombreUp}" />
                 </p:selectOneMenu>
 
                 <div>Día de la semana:</div>

@@ -30,12 +30,17 @@
                 <div class="button-group">
                     <p:commandButton value="Eliminar"
                                      styleClass="btn-insert"
-                                     action="#{asignacionUI.eliminar}"
+                                     onclick="PF('dlgConfirm').show(); return false;"
                                      icon="pi pi-trash"
                                      update="msgs"/>
 
                     <p:growl id="msgs" showDetail="true" life="5000"/>
                 </div>
+
+                <p:confirmDialog widgetVar="dlgConfirm" header="Confirmar eliminación" message="¿Desea eliminar la asignacion seleccionada?" icon="pi pi-exclamation-triangle" modal="true" appendTo="@(body)">
+                    <p:commandButton value="Sí" action="#{asignacionUI.eliminar}" update="@form" styleClass="boton-rojo" />
+                    <p:commandButton value="No" onclick="PF('dlgConfirm').hide();" type="button" />
+                </p:confirmDialog>
             </div>
 
         </h:form>

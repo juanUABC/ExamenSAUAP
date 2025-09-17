@@ -65,7 +65,6 @@ public class eliminarUnidadBeanUI implements Serializable {
                 ServiceFacadeLocator.getInstanceFacadeUnidadAprendizaje().eliminarUnidadAprendizaje(unidad.getId());
 
                 FacesContext fc = FacesContext.getCurrentInstance();
-                fc.getMessageList().clear();
                 fc.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Unidad eliminada correctamente", ""));
 
                 // Reset al estado inicial

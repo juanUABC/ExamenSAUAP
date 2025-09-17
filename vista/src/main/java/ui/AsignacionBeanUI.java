@@ -67,6 +67,14 @@ public class AsignacionBeanUI implements Serializable {
         }
 
         try {
+
+            if (asigna == null || asigna.getId() == null) {
+                FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage(FacesMessage.SEVERITY_WARN,
+                                "Error",
+                                "La asignacion no existe"));
+                return;
+            }
             ServiceFacadeLocator.getInstanceFacadeAsigna().eliminar(asigna);
 
             FacesContext.getCurrentInstance().addMessage(null,
@@ -95,6 +103,13 @@ public class AsignacionBeanUI implements Serializable {
         }
 
         try {
+            if (asigna == null || asigna.getId() == null) {
+                FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage(FacesMessage.SEVERITY_WARN,
+                                "Error",
+                                "La asignacion no existe"));
+                return;
+            }
             ServiceFacadeLocator.getInstanceFacadeAsigna().modificarAsigna(asigna, idProfesor, idUnidad);
 
             FacesContext.getCurrentInstance().addMessage(null,

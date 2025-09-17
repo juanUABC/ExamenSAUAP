@@ -29,12 +29,10 @@ public class ConsultaGeneralBeanUI implements Serializable {
 
             if (asignaciones == null || asignaciones.isEmpty()) {
                 asignaciones = new ArrayList<>();
-                // 🔹 Mostrar aviso en la UI
                 FacesContext.getCurrentInstance().addMessage(null,
                         new FacesMessage(FacesMessage.SEVERITY_WARN,
                                 "No hay asignaciones registradas", "No hay asignaciones disponibles."));
             } else {
-                // 🔹 Imprimir por consola cada Asigna
                 for (Asigna a : asignaciones) {
                     System.out.println("Asignación: " + a);
                 }
@@ -45,16 +43,14 @@ public class ConsultaGeneralBeanUI implements Serializable {
             asignaciones = new ArrayList<>();
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                            "Error", "Ocurrió un problema al cargar las asignaciones."));
+                            "Error", "Ocurrió un problema."));
         }
     }
 
-    // Refresca la lista
     public void refresh() {
         cargarAsignaciones();
     }
 
-    // Getters y Setters
     public List<Asigna> getAsignaciones() {
         if (asignaciones == null) {
             asignaciones = new ArrayList<>();

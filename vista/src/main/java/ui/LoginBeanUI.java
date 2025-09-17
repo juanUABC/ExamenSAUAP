@@ -62,16 +62,4 @@ public class LoginBeanUI implements Serializable{
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-
-    
 }

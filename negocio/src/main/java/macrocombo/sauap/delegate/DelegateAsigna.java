@@ -14,6 +14,12 @@ public class DelegateAsigna {
     public void saveAsigna(Asigna asigna){
         ServiceLocator.getInstanceAsignaDAO().save(asigna);
     }
+    public void updateAsigna(Asigna asigna){ServiceLocator.getInstanceAsignaDAO().update(asigna);}
+
+    public Asigna getPorID(Integer id) {
+        EntityManager em = HibernateUtil.getEntityManager();
+        return em.find(Asigna.class, id);
+    }
 
     public List<Asigna> obtenerTodasAsignaciones() {
         return ServiceLocator.getInstanceAsignaDAO().obtenerTodasAsignaciones();

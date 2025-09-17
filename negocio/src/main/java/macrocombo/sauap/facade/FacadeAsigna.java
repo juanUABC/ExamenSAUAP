@@ -23,11 +23,29 @@ public class FacadeAsigna {
         delegateAsigna.saveAsigna(asigna);
     }
 
+    public void modificarAsigna(Asigna asigna, Integer idProfesor, Integer idUnidad){
+        validarDatos(asigna, idProfesor, idUnidad);
+        validarTraslape(asigna);
+        delegateAsigna.updateAsigna(asigna);
+    }
+
     public List<Asigna> obtenerTodasAsignaciones() {
         return delegateAsigna.obtenerTodasAsignaciones();
     }
 
+    public Asigna obtenerPorID(Integer id) {
+        return this.delegateAsigna.getPorID(id);
+    }
+
     private void validarDatos(Asigna asigna, Integer idProfesor, Integer idUnidad) {
+        final String str = "No se selecciono ningun";
+        if (idProfesor == null) {
+            throw new IllegalArgumentException(str + " profesor");
+        }
+        if (idUnidad == null) {
+            throw new IllegalArgumentException(str + "a unidad de aprendizaje");
+        }
+
         Optional<Profesor> optionalProfesor = ServiceFacadeLocator.getInstanceFacadeProfesor().obtenerProfesorPorID(idProfesor);
         Optional<UnidadAprendizaje> optionalUnidadAprendizaje = ServiceFacadeLocator.getInstanceFacadeUnidadAprendizaje().obtenerUnidadPorID(idUnidad);
 

@@ -54,6 +54,35 @@ public class AsignacionBeanUI implements Serializable {
         this.asigna = ServiceFacadeLocator.getInstanceFacadeAsigna().obtenerPorID(asigna.getId());
     }
 
+    public void eliminar() {
+        //Mucho copy (-_-
+        try {
+            cargarAsigna();
+        } catch (IllegalArgumentException ex) {
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                            "Error",
+                            ex.getMessage()));
+            return;
+        }
+
+        try {
+            ServiceFacadeLocator.getInstanceFacadeAsigna().eliminar(asigna);
+
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_INFO,
+                            "Éxito",
+                            "Asignacion eliminada correctamente"));
+
+            this.asigna = new Asigna();
+        } catch (IllegalArgumentException ex) {
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                            "Error",
+                            ex.getMessage()));
+        }
+    }
+
     public void modificar() {
         try {
             cargarAsigna();

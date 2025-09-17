@@ -15,6 +15,7 @@ public class DelegateAsigna {
         ServiceLocator.getInstanceAsignaDAO().save(asigna);
     }
     public void updateAsigna(Asigna asigna){ServiceLocator.getInstanceAsignaDAO().update(asigna);}
+    public void deleteAsigna(Asigna asigna){ServiceLocator.getInstanceAsignaDAO().delete(asigna);}
 
     public Asigna getPorID(Integer id) {
         EntityManager em = HibernateUtil.getEntityManager();

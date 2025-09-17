@@ -29,6 +29,10 @@ public class FacadeAsigna {
         delegateAsigna.updateAsigna(asigna);
     }
 
+    public void eliminar(Asigna asigna) {
+        delegateAsigna.deleteAsigna(asigna);
+    }
+
     public List<Asigna> obtenerTodasAsignaciones() {
         return delegateAsigna.obtenerTodasAsignaciones();
     }

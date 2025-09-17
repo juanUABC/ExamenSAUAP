@@ -15,6 +15,15 @@ public class DelegateUnidadAprendizaje {
         ServiceLocator.getInstanceUnidadAprendizajeDAO().save(up);
     }
 
+    public void deleteUnidadAprendizaje(int id){
+        Optional<UnidadAprendizaje> unidad = ServiceLocator.getInstanceUnidadAprendizajeDAO().find(id);
+        unidad.ifPresent(u -> ServiceLocator.getInstanceUnidadAprendizajeDAO().delete(u));
+    }
+
+    public void updateUnidadAprendizaje(UnidadAprendizaje up){
+        ServiceLocator.getInstanceUnidadAprendizajeDAO().update(up);
+    }
+
     public List<UnidadAprendizaje> getUnidades(){
         return ServiceLocator.getInstanceUnidadAprendizajeDAO().findAll();
     }

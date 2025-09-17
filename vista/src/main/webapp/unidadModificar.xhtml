@@ -1,0 +1,121 @@
+<!-- html -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <title>Eliminar Unidad de Aprendizaje</title>
+    <style>
+        .center-wrapper { display: flex; justify-content: center; padding: 2.5rem 1rem; background: #fafafa; min-height: calc(100vh - 70px); }
+        .center-panel { width: 50%; max-width: 900px; background: #ffffff; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.08); padding: 2rem 2.5rem; box-sizing: border-box; }
+        .titulo { text-align: center; font-size: 1.9rem; font-weight: 700; margin-bottom: 1.5rem; color: #2b2b2b; }
+        .form-grid { max-width: 420px; }
+        .form-row { margin-bottom: 1rem; }
+        .form-label { display:block; margin-bottom: .35rem; color:#333; }
+        .boton-rojo { background-color:#d9534f; border-color:#c9302c; color:#fff; }
+        @media (max-width: 800px) { .center-panel { width: 90%; padding:1.2rem; } .form-grid { max-width: 100%; } }
+    </style>
+</h:head>
+<h:body>
+    <ui:include src="/resources/navbar.xhtml" />
+
+    <div class="center-wrapper">
+        <div class="center-panel">
+            <h:form id="formEliminar">
+                <div class="titulo">Eliminar Unidad</div>
+
+                <div class="form-grid">
+                    <div class="form-row">
+                        <label class="form-label">ID de la unidad a eliminar:</label>
+                        <p:inputText id="idBuscar"
+                                     value="#{eliminarUnidadBeanUI.idBuscar}"
+                                     maxlength="10"
+                                     style="width:200px;" />
+                        <p:commandButton value="Buscar"
+                                         action="#{eliminarUnidadBeanUI.buscarUnidadPorId}"
+                                         update="@form mensaje"
+                                         icon="pi pi-search"
+                                         style="margin-left:.5rem;" />
+                    </div>
+
+                    <p:messages id="mensaje" autoUpdate="true" />
+
+                    <!-- Campos informativos, siempre deshabilitados (solo lectura) -->
+                    <div class="form-row">
+                        <label class="form-label">Nombre de la unidad:</label>
+                        <p:inputText value="#{eliminarUnidadBeanUI.unidad.nombreUp}"
+                                     maxlength="50"
+                                     style="width:100%;"
+                                     disabled="true" />
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label">Horas Clase:</label>
+                        <p:spinner value="#{eliminarUnidadBeanUI.unidad.horasClase}"
+                                   min="0" max="4"
+                                   style="width:120px;"
+                                   disabled="true" />
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label">Horas Taller:</label>
+                        <p:spinner value="#{eliminarUnidadBeanUI.unidad.horasTaller}"
+                                   min="0" max="4"
+                                   style="width:120px;"
+                                   disabled="true" />
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label">Horas Laboratorio:</label>
+                        <p:spinner value="#{eliminarUnidadBeanUI.unidad.horasLaboratorio}"
+                                   min="0" max="4"
+                                   style="width:120px;"
+                                   disabled="true" />
+                    </div>
+
+                    <div class="form-row" style="margin-top:1.2rem;">
+                        <p:commandButton value="Eliminar"
+                                         icon="pi pi-trash"
+                                         styleClass="boton-rojo"
+                                         onclick="PF('dlgConfirm').show(); return false;"
+                                         disabled="#{not eliminarUnidadBeanUI.unidadEncontrada}" />
+                    </div>
+
+                    <!-- Diálogo de confirmación -->
+                    <p:confirmDialog widgetVar="dlgConfirm" header="Confirmar eliminación" message="¿Desea eliminar la unidad seleccionada?" icon="pi pi-exclamation-triangle" modal="true" appendTo="@(body)">
+                        <p:commandButton value="Sí"
+                                         action="#{eliminarUnidadBeanUI.eliminarUnidad}"
+                                         update="@form"
+                                         process="@this"
+                                         styleClass="boton-rojo"
+                                         onstart="PF('dlgConfirm').hide();"
+                                         oncomplete="if (args &amp;&amp; args.validationFailed) { PF('dlgConfirm').show(); }" />
+                        <p:commandButton value="No" onclick="PF('dlgConfirm').hide();" type="button" />
+                    </p:confirmDialog>
+
+                    <!-- Diálogo de éxito -->
+                    <p:dialog id="dlgSuccess" widgetVar="dlgSuccess" header="Realizado" modal="true" appendTo="@(body)" closable="true" resizable="false">
+                        <h:panelGrid columns="1" style="width:100%;">
+                            <h:outputText value="#{eliminarUnidadBeanUI.successMessage}" escape="false" />
+                            <p:commandButton value="Cerrar"
+                                             onclick="PF('dlgSuccess').hide();"
+                                             type="button"
+                                             style="margin-top:.8rem;" />
+                        </h:panelGrid>
+                    </p:dialog>
+
+                    <!-- Diálogo de error -->
+                    <p:dialog id="dlgErrorElim" widgetVar="dlgErrorElim" header="Error" modal="true" appendTo="@(body)" closable="true" resizable="false">
+                        <h:panelGrid columns="1" style="width:100%;">
+                            <h:outputText value="#{eliminarUnidadBeanUI.errorMessage}" escape="false" />
+                            <p:commandButton value="Cerrar" onclick="PF('dlgErrorElim').hide();" type="button" style="margin-top:.8rem;" />
+                        </h:panelGrid>
+                    </p:dialog>
+
+                </div>
+            </h:form>
+        </div>
+    </div>
+</h:body>
+</html>

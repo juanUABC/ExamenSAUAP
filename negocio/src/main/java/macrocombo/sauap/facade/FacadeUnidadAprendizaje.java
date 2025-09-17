@@ -20,6 +20,19 @@ public class FacadeUnidadAprendizaje {
         delegateUnidadAprendizaje.saveUnidadAprendizaje(up);
     }
 
+    public void eliminarUnidadAprendizaje(Integer id) {
+        delegateUnidadAprendizaje.deleteUnidadAprendizaje(id);
+    }
+
+    public void actualizarUnidad(UnidadAprendizaje up) throws IllegalArgumentException{
+        validar(up);
+        delegateUnidadAprendizaje.updateUnidadAprendizaje(up);
+    }
+
+    public void buscarUnidadPorId(Integer id) {
+        delegateUnidadAprendizaje.getUnidad(id);
+    }
+
     public List<UnidadAprendizaje> obtenerUnidades(){
         return delegateUnidadAprendizaje.getUnidades();
     }

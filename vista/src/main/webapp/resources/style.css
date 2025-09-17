@@ -1,19 +1,12 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-
-.body{
-    background: black;
+/* Fondo y tipografía */
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
 }
 
-body {
-     font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     background-color: #f9f9f9;
-     margin: 0;
-     padding: 0;
- }
+/* Navbar */
 .navbar {
     background-color: #1f172b;
     padding: 14px 0;
@@ -29,39 +22,55 @@ body {
 .navbar a:hover {
     text-decoration: underline;
 }
+
+/* Contenedor tipo tarjeta con borde verde */
 .container {
     max-width: 1000px;
     margin: 40px auto;
     padding: 30px;
     background: #ffffff;
     border-radius: 15px;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    border: 2px solid #4CAF50;   /* borde verde */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
+
+/* Título */
 .title {
     font-size: 1.8em;
     font-weight: 700;
-    color: #333;
+    color: #222;
     margin-bottom: 25px;
     text-align: center;
 }
+
+/* Tabla */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
+    border: 1px solid #4CAF50;  /* borde verde alrededor */
+    border-radius: 10px;
+    overflow: hidden;
 }
+
+/* Celdas */
 th, td {
     padding: 12px 15px;
     text-align: center;
     border-bottom: 1px solid #ddd;
 }
+
+/* Cabecera con verde */
 th {
-    background-color: #1f172b;
+    background-color: #4CAF50;
     color: #ffffff;
     font-weight: 600;
 }
+
+/* Filas */
 tr:nth-child(even) {
-    background-color: #f7f7f7;
+    background-color: #f9fdf9; /* verde muy clarito */
 }
 tr:hover {
-    background-color: #ececec;
+    background-color: #e6f4ea; /* verde suave en hover */
 }

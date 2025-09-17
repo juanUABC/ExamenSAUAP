@@ -18,8 +18,9 @@ public class AsignaDAO extends AbstractDAO<Asigna> {
         return entityManager
                 .createQuery(
                         "SELECT a FROM Asigna a " +
-                                "LEFT JOIN FETCH a.idProfesor " +
-                                "LEFT JOIN FETCH a.idUnidad",
+                                "LEFT JOIN FETCH a.idProfesor p " +
+                                "LEFT JOIN FETCH a.idUnidad u " +
+                                "ORDER BY a.idProfesor.nombreProfesor ASC",
                         Asigna.class)
                 .getResultList();
     }

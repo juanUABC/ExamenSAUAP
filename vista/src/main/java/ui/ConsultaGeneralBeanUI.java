@@ -37,6 +37,7 @@ public class ConsultaGeneralBeanUI implements Serializable {
                     System.out.println("Asignación: " + a);
                 }
             }
+
         } catch (Exception e) {
             e.printStackTrace();
             asignaciones = new ArrayList<>();
